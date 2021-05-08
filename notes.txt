@@ -1,0 +1,256 @@
+What is react :: A Client Side JavaScript Library (Framework)
+
+client side : because it runs on the user's machine, in the browser rather then a server
+for : front-end application and user interface
+
+It's 'component' based : every piece of front-end interface or application is an individual component
+
+Library, but refered to as a 'Framework' 
+
+Why learn and use react;
+
+Component Based UI
+organised structure
+
+Setting up the environment
+needed: 
+node.js (npm)
+text editor: visual studio code (or sblime or atom...)
+git
+
+
+recommanded: 
+
+
+--------
+What is Git :: a Version Control System (VCS) to track changes in computer files
+It stores files
+
+distributed / decentralised version control system (vcs) 
+can work on the same project w/o being on the same network
+
+keeps track of your code by taking snapshots of the files => by making a 'commit'
+in local repository 
+
+staging area / index / working tree :
+local repository:
+
+
+Bascis commands ::
+// to initialize a Local Git Repository
+$ git init 
+
+// add file(s) to Index, to be ready for 'commit'
+$ git add <file>
+
+// check status of working tree 
+$ git status
+
+// commit changes in Index (takes everything in the index (staging area and put in into the local repository)
+$ git commit
+
+/*need to know : flags and options*/
+
+Related to repository : github...
+// push to remote repository
+$ git push
+
+// pull the latest from repository (the latest change/version)
+$ git pull
+
+// Copy a remote repository into your folder, / clone a project/program/module that'll download it to your machine 
+$ git clone
+
+INSTALLING Git
+Linux (debian)
+$ sudo apt-get install git
+
+Linux (fedora)
+$ sudo yum install git
+
+Mac 
+http://git-scm.com/download/mac 
+
+Windows
+http://git-scm.com/download/win
+
+_____________________
+project #1
+create files 
+$ touch index.html
+$ touch app.js
+
+into folder my-git-app
+to create a repository of this folder :: 
+$ git init =>
+
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app
+$ git init
+Initialized empty Git repository in //10.10.10.122/Rox/Programmation/Git/my-git-app/.git/
+===
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app (master)
+
+// add name and email to git
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app (master)
+$ git config --global user.name 'Roxanne Lablec'
+
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app (master)
+$ git config --global user.email 'contact@roxannelablec.xyz'
+
+// add to the staging area
+$ git add index.html 
+$ git status 
+= 
+On branch master
+No commits yet
+    Changes to be committed:
+    (use "git rm --cached <file>..." to unstage)
+            new file:   index.html
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            app.js
+
+// use * to regroup by ext. (ex. add to the  all the .html)
+$ git add * .html
+// same in .gitingore to ignore all files with the same extension
+*.txt 
+
+// use . to add everything to the staging area 
+$ git add .
+
+// to commit
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app (master)
+$ git commit
+    [master (root-commit) 45c75d1] Initial commit
+        2 files changed, 10 insertions(+)
+        create mode 100644 app.js
+        create mode 100644 index.html
+
+// or ::
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app (master)
+$ git commit -m 'changed app.js'
+    [master 1e51539] changed app.js
+    1 file changed, 1 insertion(+)
+
+// to clear the board
+$ clear
+
+// git ignore
+touch .gitignore
+
+// to save a .gitignore file in Windows
+- Open Notepad
+Add the content
+Save As : select "all files"
+Save as .gitignore. 
+
+
+Some way to remove files ::
+// to see what would be remove
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app (master)
+$ git clean -xdn  
+Would remove .gitignore
+Would remove log.txt
+
+// to execute the removal
+Roxou@Yoga-X1 MINGW64 /r/Programmation/Git/my-git-app (master)
+$ git clean -xdf 
+Removing .gitignore
+Removing log.txt
+
+// VIM editor 
+
+Branches ::
+// to add a branch 
+git branch login (the name of the branch)
+
+// to switch branches 
+git checkout login (the name of the branch)
+
+    Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+    $ git branch login
+
+    Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+    $ git checkout login
+    Switched to branch 'login'
+
+// clear the panel
+    Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+    $ clear 
+
+    Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (login)
+
+// to merge the branch, once it's complete and ready to use. In the 'master' write 
+git merge login (name of the branch)
+
+
+Remote repositories | GitHub 
+// mark down : allow to display the text nicely on the page
+ex. README.md 
+
+// to check the existing remote repositories ::
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ git remote
+
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ git remote add origin https://github.com/elementum-vita/mygitapptest.git
+
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ git remote
+origin
+
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ git push -u origin master
+info: please complete authentication in your browser...
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (16/16), 1.33 KiB | 271.00 KiB/s, done.
+Total 16 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/elementum-vita/mygitapptest.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+// to help people understand the repository create a README file ::
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ touch README.md
+
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ git add .
+
+// commit to local repository ::
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ git commit -m 'added readme'
+[master a82cc99] added readme
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+
+// to push it on the github repository ::
+Roxou@Yoga-X1 MINGW64 ~/Documents/DEV/Git/my-git-app (master)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 307 bytes | 307.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/elementum-vita/mygitapptest.git
+   9928019..a82cc99  master -> master
+
+
+// to download a repository :: 
+in GitHub :: click on clone / download and copy the url, then paste it in Git Bash 
+    $ git clone https:..... ()
+
+// 
+$ git pull
+
+_____________________________
+to get 'emmet' to work in JSX you have to add the code below in settings.json :: 
+"emmet.includeLanguages": {
+    "javaScript": "javaScriptreact"
+},
